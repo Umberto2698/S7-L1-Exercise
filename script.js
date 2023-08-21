@@ -36,6 +36,8 @@ console.log(User.compareAge(utenti[3], utenti[2]));
 
 const dati = document.getElementsByTagName("input");
 const btn = document.getElementById("submit");
+const ul = document.getElementsByTagName("ul")[0];
+const br = document.createElement("br");
 
 class Pet {
   constructor(petName, ownerName, species, breed) {
@@ -54,6 +56,12 @@ let animali = [];
 
 btn.addEventListener("click", (submit) => {
   submit.preventDefault();
+  for (let i = 0; i < dati.length; i++) {
+    const li = document.createElement("li");
+    li.innerText = `${dati[i].value}`;
+    ul.appendChild(li);
+  }
+  ul.appendChild(br);
   animali.push(new Pet(dati[0].value, dati[1].value, dati[2].value, dati[3].value));
   if (animali.length > 1) {
     for (let i = 0; i < animali.length - 1; i++) {
